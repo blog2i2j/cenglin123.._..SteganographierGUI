@@ -24,9 +24,6 @@ import sys
 import json
 import random
 import datetime
-import tkinter as tk
-from tkinter import  messagebox, ttk, filedialog
-from tkinterdnd2 import DND_FILES, TkinterDnD
 import pyzipper
 import zipfile
 import tempfile
@@ -45,10 +42,13 @@ import webbrowser
 import ctypes
 import psutil
 
-
-
-
-
+HAS_TK = True
+try:    
+    import tkinter as tk
+    from tkinter import  messagebox, ttk, filedialog
+    from tkinterdnd2 import DND_FILES, TkinterDnD
+except ImportError:
+    HAS_TK = False
 
 
 class ToolTip:
@@ -3589,6 +3589,9 @@ if __name__ == "__main__":
     
     # 根据模式显示/隐藏控制台
     if not is_cli_mode:
+        if not HAS_TK:
+            error("未安装Tkinter库，无法启动GUI模式")
+            sys.exit(1)
         hide_console()
     else:
         show_console()
