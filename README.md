@@ -13,7 +13,6 @@
 
 **改 MP4 后缀为 .zip 用** [**WinRAR**](https://www.win-rar.com/start.html?&L=0) **解压**
 
-WinRAR分享提取码c9ar
 
 ---
 
